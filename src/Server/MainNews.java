@@ -41,7 +41,6 @@ public class MainNews extends Thread{
                 server.serverSendAll(b);
 //                RunServer.textAreaDisplay.appendText(b);
             }
-            this.news = null;
         }catch(MalformedURLException e) {
             e.printStackTrace();
         } catch(IOException e) {

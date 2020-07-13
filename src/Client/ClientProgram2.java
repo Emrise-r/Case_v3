@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -32,6 +33,7 @@ public class ClientProgram2 extends Application {
         scrollPane_2 = new ScrollPane();
         HBox hBox_2 = new HBox();
         textAreaDisplay_2 = new TextArea();
+        textAreaDisplay_2.setWrapText(true);
         textAreaDisplay_2.setEditable(false);
         scrollPane_2.setContent(textAreaDisplay_2);
         scrollPane_2.setFitToWidth(true);
@@ -44,6 +46,7 @@ public class ClientProgram2 extends Application {
         textInput_2.setTooltip(new Tooltip("Write your message: "));
         Button buttonSend_2 = new Button("Send");
         buttonSend_2.setOnAction(new ButtonListener());
+        buttonSend_2.setDefaultButton(true);
 
         hBox_2.getChildren().addAll(textName_2, textInput_2, buttonSend_2);
         hBox_2.setHgrow(textInput_2, Priority.ALWAYS);  //set textfield to grow as window size grows
@@ -54,6 +57,7 @@ public class ClientProgram2 extends Application {
 
         //create a scene and display
         Scene scene_2 = new Scene(vBox_2, 450, 500);
+        primaryStage.getIcons().add(new Image("java.png"));
         primaryStage.setTitle("Client_2");
         primaryStage.setScene(scene_2);
         primaryStage.show();

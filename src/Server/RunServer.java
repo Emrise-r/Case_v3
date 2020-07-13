@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class RunServer extends Application {
@@ -24,6 +25,7 @@ public class RunServer extends Application {
         scrollPane.setFitToWidth(true);
 
         Scene scene = new Scene(scrollPane, 300, 500);
+        primaryStage.getIcons().add(new Image("code_gym.png"));
         primaryStage.setTitle("Server");
         primaryStage.setScene(scene);
         primaryStage.show();

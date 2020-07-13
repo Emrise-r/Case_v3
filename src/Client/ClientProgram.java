@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -32,6 +33,7 @@ public class ClientProgram extends Application {
         scrollPane_1 = new ScrollPane();
         HBox hBox_1 = new HBox();
         textAreaDisplay_1 = new TextArea();
+        textAreaDisplay_1.setWrapText(true);
         textAreaDisplay_1.setEditable(false);
         scrollPane_1.setContent(textAreaDisplay_1);
         scrollPane_1.setFitToWidth(true);
@@ -44,16 +46,18 @@ public class ClientProgram extends Application {
         textInput_1.setTooltip(new Tooltip("Write your message:"));
         Button buttonSend_1 = new Button("Send");
         buttonSend_1.setOnAction(new ButtonListener());
+        buttonSend_1.setDefaultButton(true);
 
         hBox_1.getChildren().addAll(textName_1, textInput_1, buttonSend_1);
-        hBox_1.setHgrow(textInput_1, Priority.ALWAYS);  //set textfield to grow as window size grows
+        hBox_1.setHgrow(textInput_1, Priority.ALWAYS);
 
-        //set center and bottom of the borderPane with scrollPane and hBox
+
         vBox_1.getChildren().addAll(scrollPane_1, hBox_1);
         vBox_1.setVgrow(scrollPane_1, Priority.ALWAYS);
 
-        //create a scene and display
+
         Scene scene_1 = new Scene(vBox_1, 450, 500);
+        primaryStage.getIcons().add(new Image("java.png"));
         primaryStage.setTitle("Client_1");
         primaryStage.setScene(scene_1);
         primaryStage.show();
@@ -89,11 +93,10 @@ public class ClientProgram extends Application {
         @Override
         public void handle(ActionEvent e) {
             try {
-                //get username and message
+
                 String username_1 = textName_1.getText().trim();
                 String message_1 = textInput_1.getText().trim();
 
-                //if username is empty set it to 'Unknown'
                 if (username_1.length() == 0) {
                     username_1 = "Unknown";
                 }
@@ -103,7 +106,6 @@ public class ClientProgram extends Application {
 //                textAreaDisplay_1.appendText("[" + username_1 + "]: " + message_1 + "");
                 bos.flush();
 
-                //clear the textfield
                 textInput_1.clear();
 
             } catch (IOException ex) {

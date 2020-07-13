@@ -20,6 +20,7 @@ public class ClientReaderThread2 implements Runnable {
                 bis = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 String line;
                 if ((line = bis.readLine()) != null) {
+//                    System.out.println(line);
                     ClientProgram2.textAreaDisplay_2.appendText(line + "\n");
                 }
             } catch (IOException e) {

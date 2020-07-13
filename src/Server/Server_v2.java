@@ -7,7 +7,6 @@ import java.util.*;
 
 public class Server_v2 extends Thread{
 
-
     //Tao list ten cac client dang ket noi
     List<ClientOnline> connectionList = new ArrayList<>();
 
@@ -17,6 +16,7 @@ public class Server_v2 extends Thread{
     public void removeClientOnline(ClientOnline clientOnline) {
         this.connectionList.remove(clientOnline);
     }
+
     //gui tin tu server den cac user trong list
     public void serverSendAll(String mess) {
         for (ClientOnline clientOnline : this.connectionList) {

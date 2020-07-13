@@ -29,7 +29,6 @@ public class ClientOnline extends Thread {
                 if ((line = bis.readLine()) != null) {
                     RunServer.textAreaDisplay.appendText(line + "\n");
                     server.serverSendAll(line);
-                    String text = line;
                     botNews();
                 }
             }
