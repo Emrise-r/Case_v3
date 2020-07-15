@@ -40,6 +40,9 @@ public class News extends Thread {
                     if (matcher.group(2).contains("https://www.nytimes.com/")) {
                         urlb = matcher.group(2);
                     } else urlb = "https://www.nytimes.com/" + matcher.group(2);
+                    if (urlb.contains("interactive")) {
+                        continue;
+                    }
                     urlb = urlb.replaceAll("\"(.*?)", "");
                     N = n - 3;
                     System.out.println(urlb);
