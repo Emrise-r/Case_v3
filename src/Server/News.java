@@ -37,8 +37,12 @@ public class News extends Thread {
                     continue;
                 }
                 if(n > 3) {
-                    urlb = "https://www.nytimes.com/" + matcher.group(2);
+                    if (matcher.group(2).contains("https://www.nytimes.com/")) {
+                        urlb = matcher.group(2);
+                    } else urlb = "https://www.nytimes.com/" + matcher.group(2);
+                    urlb = urlb.replaceAll("\"(.*?)", "");
                     N = n - 3;
+                    System.out.println(urlb);
                     ObjNews objNews = new ObjNews(N, urlb, t);
                     listNews.add(objNews);
                     server.serverSendAll(N + ". " + t.replaceAll("<span>|</span>","") + "\n");
