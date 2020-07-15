@@ -20,8 +20,8 @@ public class ClientReaderThread implements Runnable {
                 bis = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 String line;
                 if ((line = bis.readLine()) != null) {
-                    System.out.println(line);
-//                    ClientProgram.textAreaDisplay_1.appendText(line + "\n");
+//                    System.out.println(line);
+                    ClientProgram.textAreaDisplay_1.appendText(line + "\n");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
